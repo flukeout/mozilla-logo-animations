@@ -1,0 +1,180 @@
+
+@font-face {
+  font-family: 'Zilla';
+  // src: ~"url('../css/ZillaSlab-BoldHighlight.otf')";
+  src: ~"url('./css/ZillaSlab-Bold.otf')";
+}
+
+html {
+  font-family: "Zilla", "Arvo","Fira Sans", "Helvetica Neue", "Arial", sans-serif;
+}
+
+
+body {
+  background: black;
+}
+
+.page-wrapper {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  margin: 0;
+}
+
+.logo-wrapper {
+  position: relative;
+  display: flex;
+  transition: scale .2s ease-out;
+  cursor: pointer;
+  height: 90px;
+
+  margin: 0 auto;
+  position: relative;
+
+}
+
+.page-wrapper.pop {
+
+  .logo-wrapper {
+    animation: typePop .15s ease-out;
+  }
+
+  @keyframes typePop {
+    0% { transform: scale(1) };
+    20% { transform: scale(.9) };
+    60% { transform: scale(1.05) };
+    100% { transform: scale(1) };
+  }
+
+}
+
+.box {
+  color: black;
+  background: white;
+  margin: 0 auto;
+  perspective: 800px;
+  font-size: 80px;
+  padding: 0 15px;
+  height: 84px;
+
+  .words {
+    position: relative;
+    height: 86px;
+    line-height: 80px;
+  }
+
+  .cursor {
+    content: "";
+    height: 65px;
+    background: black;
+    width: 2px;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    animation: blink 1s linear infinite;
+    animation-delay: .5s;
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    49.9% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .letter {
+    padding: 4px 0px;
+    font-weight: 700;
+    color: black;
+    font-size: 80px;
+    display: inline-block;
+    position: relative;
+
+    &[hidden] {
+      display: none;
+    }
+
+
+
+    @keyframes wobble {
+      0% {
+        transform: translateY(0);
+        animation-timing-function: ease-out;
+      }
+      25% {
+        transform: translateY(-12px) rotateX(10deg);
+        animation-timing-function: ease-in;
+      }
+      50% {
+        transform: translateY(0);
+        animation-timing-function: ease-out;
+      }
+      75% {
+        transform: translateY(12px) rotateX(-10deg);
+        animation-timing-function: ease-in;
+
+      }
+      0% {
+        transform: translateY(0);
+        animation-timing-function: ease-out;
+      }
+    }
+
+  }
+}
+
+
+&.done {
+  background: white;
+
+  .box {
+    background: black;
+    color: white;
+    transition: transform .35s cubic-bezier(.17,.67,.48,1.29);
+    transform: scale(1.2);
+  }
+
+  .cursor {
+    display: none !important;
+  }
+}
+
+// Probably want to drop in some media query stuff too... narrow css?
+// Animation Example
+
+.animation-example {
+  animation: sampleAnimation .4s ease-out;
+  animation-iteration-count: 3;
+  animation-delay: .5s;
+}
+
+@keyframes sampleAnimation {
+  0% {
+    transform: scale(1.5);
+    opacity: .5;
+  }
+  50%{
+    transform: scale(.7);
+    opacity: .5;
+  }
+  100% {
+    transform: scale(.7);
+    opacity: 0;
+  }
+}

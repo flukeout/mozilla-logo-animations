@@ -1,0 +1,125 @@
+
+@font-face {
+  font-family: 'Zilla';
+  src: ~"url('./css/ZillaSlab-Bold.otf')";
+}
+
+html {
+  font-family: "Zilla", "Arvo","Fira Sans", "Helvetica Neue", "Arial", sans-serif;
+  // font-family: "Zilla";
+}
+
+
+body {
+  background: black;
+}
+
+.page-wrapper {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  text-align: center;
+  margin: 0;
+}
+
+.logo-wrapper {
+  position: relative;
+  display: flex;
+  transition: scale .2s ease-out;
+  cursor: pointer;
+  height: 90px;
+
+  margin: 0 auto;
+  position: relative;
+
+}
+
+.box {
+
+
+  margin: 0 auto;
+  perspective: 800px;
+
+  .letter {
+    padding: 4px 0px;
+    font-weight: 700;
+    background: white;
+    color: black;
+    font-size: 80px;
+    display: inline-block;
+
+    transition: padding .2s ease-out;
+
+
+    &:first-child {
+      padding-left: 8px;
+    }
+
+    &:last-child {
+      padding-right: 8px;
+    }
+
+    &.boom {
+      text-align: center;
+      animation: wobble 1s linear infinite;
+      box-shadow: 0px 8px 0px rgba(0,0,0,.15);
+    }
+
+    @keyframes wobble {
+      0% {
+        transform: translateY(0);
+        animation-timing-function: ease-out;
+      }
+      25% {
+        transform: translateY(-12px) rotateX(10deg);
+        animation-timing-function: ease-in;
+      }
+      50% {
+        transform: translateY(0);
+        animation-timing-function: ease-out;
+      }
+      75% {
+        transform: translateY(12px) rotateX(-10deg);
+        animation-timing-function: ease-in;
+
+      }
+      0% {
+        transform: translateY(0);
+        animation-timing-function: ease-out;
+      }
+    }
+
+  }
+}
+
+// Probably want to drop in some media query stuff too... narrow css?
+// Animation Example
+
+.animation-example {
+  animation: sampleAnimation .4s ease-out;
+  animation-iteration-count: 3;
+  animation-delay: .5s;
+}
+
+@keyframes sampleAnimation {
+  0% {
+    transform: scale(1.5);
+    opacity: .5;
+  }
+  50%{
+    transform: scale(.7);
+    opacity: .5;
+  }
+  100% {
+    transform: scale(.7);
+    opacity: 0;
+  }
+}

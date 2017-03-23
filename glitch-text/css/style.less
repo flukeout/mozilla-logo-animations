@@ -1,0 +1,86 @@
+
+@font-face {
+  font-family: 'Zilla';
+  src: ~"url('./css/ZillaSlab-Bold.otf')";
+}
+
+html {
+  font-family: "Zilla", "Arvo","Fira Sans", "Helvetica Neue", "Arial", sans-serif;
+  // font-family: "Zilla";
+}
+
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.page-wrapper {
+  margin: 0 auto;
+  flex: 1;
+  max-width: 1000px;
+  text-align: center;
+}
+
+
+.words {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: left;
+  font-weight: 700;
+  pointer-events: none;
+
+  span {
+    color: white;
+    opacity: .2;
+    display: inline-block;
+    font-size: 22px;
+    padding: 5px;
+  }
+}
+
+
+h1 {
+  background: black;
+  position: relative;
+  color: white;
+  font-size: 80px;
+  font-weight: 700;
+  display: inline-block;
+  padding: 5px 10px;
+  transition: scale .2s ease-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.04);
+  }
+}
+// Probably want to drop in some media query stuff too... narrow css?
+
+// Animation Example
+
+.animation-example {
+  animation: sampleAnimation .4s ease-out;
+  animation-iteration-count: 3;
+  animation-delay: .5s;
+}
+
+@keyframes sampleAnimation {
+  0% {
+    transform: scale(1.5);
+    opacity: .5;
+  }
+  50%{
+    transform: scale(.7);
+    opacity: .5;
+  }
+  100% {
+    transform: scale(.7);
+    opacity: 0;
+  }
+}
